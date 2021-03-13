@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Skills') }}
+            {{ __('Jobs') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="ml-3" style="display: flex; margin: auto;">
                 <div class="p-2">
-                    <a href="{{ route('dashboard.skills.index') }}">
+                    <a href="{{ route('dashboard.jobs.index') }}">
                         <x-button class="ml-3">
                             {{ __('Back') }}
                         </x-button>
@@ -24,26 +24,45 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="p-2">
-                        Editing a skill
+                        Editing a job
                     </div>
-                    <form method="POST" action="{{ route('dashboard.skills.update', $skill) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('dashboard.jobs.update', $job) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
                         <div class="mt-4">
-                            <x-label for="name" :value="__('Name')" />
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $skill->name }}" required autofocus />
+                            <x-label for="title" :value="__('Title')" />
+                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $job->title }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="society" :value="__('Society')" />
+                            <x-input id="society" class="block mt-1 w-full" type="text" name="society" value="{{ $job->society }}" required autofocus />
                         </div>
 
                         <div class="mt-4">
                             <x-label for="description" :value="__('Description')" />
-                            <x-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{ $skill->description }}" required autofocus />
+                            <x-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{ $job->description }}" required autofocus />
                         </div>
 
                         <div class="mt-4">
-                            <x-label for="level" :value="__('Level')" />
-                            <input name="level" id="level" type="range" class="slider" min="0" max="10" style="width: 100%;" value="{{ $skill->level }}">
-                            <p id="range" style="margin: auto; width: fit-content;"></p>
+                            <x-label for="missions" :value="__('Missions')" />
+                            <x-input id="missions" class="block mt-1 w-full" type="text" name="missions" value="{{ $job->missions }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="location" :value="__('Location')" />
+                            <x-input id="location" class="block mt-1 w-full" type="text" name="location" value="{{ $job->location }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="start_date" :value="__('Start date')" />
+                            <x-input id="start_date" class="block mt-1 w-full" type="date" name="start_date" value="{{ $job->start_date }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="end_date" :value="__('End Date')" />
+                            <x-input id="end_date" class="block mt-1 w-full" type="date" name="end_date" value="{{ $job->end_date }}" required autofocus />
                         </div>
 
                         <div class="mt-4">
@@ -56,7 +75,7 @@
 
                         <div class="mt-4">
                             <x-label :value="__('Preview')" />
-                            <img src="{{ asset('storage/images/' .$skill->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
+                            <img src="{{ asset('storage/images/' .$job->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
@@ -69,13 +88,6 @@
             </div>
 
             <script>
-                var slider = document.getElementById("level");
-                var output = document.getElementById("range");
-                output.innerHTML = slider.value;
-                slider.oninput = function() {
-                    output.innerHTML = this.value;
-                };
-
                 function readURL(input) {
                     if (input.files && input.files[0]) {
                         var reader = new FileReader();
@@ -83,7 +95,7 @@
                         reader.onload = function(e) {
                             $('#preview').attr('src', e.target.result);
                         }
-                        
+
                         imageLabel.textContent = input.files[0]["name"];
                         reader.readAsDataURL(input.files[0]); // convert to base64 string
                     }

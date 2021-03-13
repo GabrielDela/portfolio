@@ -27,7 +27,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img src="{{ asset('storage/images/' . $skill->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 100px; height: 100px; object-fit: cover;">
+                            <img src="{{ asset('storage/images/' . $skill->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 100px; height: 100px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
                         </div>
                         <div class="ml-3" style="margin: auto;">
                             <div class="font-medium text-base text-gray-800">{{ $skill->name }}</div>
@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+            <br>
             @endforeach
             @else
             <div class="py-12">
