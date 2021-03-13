@@ -2,26 +2,26 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex" style="width: 100%;">
                 <div class="flex-shrink-0 flex items-center">
-                    <x-nav-link :href="route('index')" class="text-gray-800 font-weight-bold">
+                    <x-nav-link :href="route('index')" class="text-gray-800 font-weight-bold" style="text-decoration: none;">
                         <!-- active="request()->routeIs('index')" -->
                         {{ __('Gabriel DELAHAYE') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="#portfolio" id="btnPortfolio">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-left: auto;">
+                    <x-nav-link href="#portfolio" id="btnPortfolio" style="text-decoration: none;">
                         {{ __('Portfolio') }}
                     </x-nav-link>
-                    <x-nav-link href="#experiences" id="btnExperiences">
+                    <x-nav-link href="#experiences" id="btnExperiences" style="text-decoration: none;">
                         {{ __('Expériences') }}
                     </x-nav-link>
-                    <x-nav-link href="#scholarships" id="btnScholarships">
+                    <x-nav-link href="#scholarships" id="btnScholarships" style="text-decoration: none;">
                         {{ __('Scolarité') }}
                     </x-nav-link>
-                    <x-nav-link href="#skills" id="btnSkills">
+                    <x-nav-link href="#skills" id="btnSkills" style="text-decoration: none;">
                         {{ __('Compétences') }}
                     </x-nav-link>
                 </div>
@@ -42,16 +42,16 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="#portfolio" id="btnPortfolioRES" @click="open = ! open">
+            <x-responsive-nav-link href="#portfolio" id="btnPortfolioRES" @click="open = ! open" style="text-decoration: none;">
                 {{ __('Portfolio') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#experiences" id="btnExperiencesRES" @click="open = ! open">
+            <x-responsive-nav-link href="#experiences" id="btnExperiencesRES" @click="open = ! open" style="text-decoration: none;">
                 {{ __('Expériences') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#scholarships" id="btnScholarshipsRES" @click="open = ! open">
+            <x-responsive-nav-link href="#scholarships" id="btnScholarshipsRES" @click="open = ! open" style="text-decoration: none;">
                 {{ __('Scolarité') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="#skills" id="btnSkillsRES" @click="open = ! open">
+            <x-responsive-nav-link href="#skills" id="btnSkillsRES" @click="open = ! open" style="text-decoration: none;">
                 {{ __('Compétences') }}
             </x-responsive-nav-link>
         </div>
@@ -73,23 +73,24 @@
 
         for (var i = 0; i < buttons.length; i++) {
             var element = buttons[i];
+
             element.classList.remove("border-transparent");
-            element.classList.remove("text-gray-500");
-            element.classList.remove("hover:text-gray-700");
-            element.classList.remove("hover:border-gray-300");
+            element.classList.remove("text-grey-500");
+            element.classList.remove("hover:text-red-700");
+            element.classList.remove("hover:border-red-300");
             element.classList.remove("focus:outline-none");
             element.classList.remove("focus:outline-none");
-            element.classList.remove("focus:text-gray-700");
-            element.classList.remove("focus:border-gray-300");
-            element.classList.remove("border-indigo-400");
-            element.classList.remove("text-gray-900");
+            element.classList.remove("focus:text-red-700");
+            element.classList.remove("focus:border-red-300");
+            element.classList.remove("border-red-400");
+            element.classList.remove("text-red-900");
             element.classList.remove("focus:outline-none");
-            element.classList.remove("focus:border-indigo-700");
+            element.classList.remove("focus:border-red-700");
             if (element.id == "btnPortfolio" || element.id == "btnPortfolioRES") {
-                element.classList.add("border-indigo-400");
-                element.classList.add("text-gray-900");
+                element.classList.add("border-red-400");
+                element.classList.add("text-red-900");
                 element.classList.add("focus:outline-none");
-                element.classList.add("focus:border-indigo-700");
+                element.classList.add("focus:border-red-700");
             }
         }
 
@@ -99,22 +100,22 @@
                 for (var i = 0; i < buttons.length; i++) {
                     var element = buttons[i];
                     element.classList.remove("border-transparent");
-                    element.classList.remove("text-gray-500");
-                    element.classList.remove("hover:text-gray-700");
-                    element.classList.remove("hover:border-gray-300");
+                    element.classList.remove("text-grey-500");
+                    element.classList.remove("hover:text-red-700");
+                    element.classList.remove("hover:border-red-300");
                     element.classList.remove("focus:outline-none");
                     element.classList.remove("focus:outline-none");
-                    element.classList.remove("focus:text-gray-700");
-                    element.classList.remove("focus:border-gray-300");
-                    element.classList.remove("border-indigo-400");
-                    element.classList.remove("text-gray-900");
+                    element.classList.remove("focus:text-red-700");
+                    element.classList.remove("focus:border-red-300");
+                    element.classList.remove("border-red-400");
+                    element.classList.remove("text-red-900");
                     element.classList.remove("focus:outline-none");
-                    element.classList.remove("focus:border-indigo-700");
+                    element.classList.remove("focus:border-red-700");
                     if (element.id == buttonID.replace("RES", "") || element.id == buttonID.replace("RES", "") + "RES") {
-                        element.classList.add("border-indigo-400");
-                        element.classList.add("text-gray-900");
+                        element.classList.add("border-red-400");
+                        element.classList.add("text-red-900");
                         element.classList.add("focus:outline-none");
-                        element.classList.add("focus:border-indigo-700");
+                        element.classList.add("focus:border-red-700");
                     }
                 }
             });
