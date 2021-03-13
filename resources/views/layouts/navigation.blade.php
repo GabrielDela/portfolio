@@ -21,9 +21,7 @@
                     <x-nav-link :href="route('dashboard.skills.index')" :active="request()->routeIs('dashboard.skills.index')">
                         {{ __('Skills') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                        {{ __('Portfolio') }}
-                    </x-nav-link>
+
                 </div>
             </div>
 
@@ -43,6 +41,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('index')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                            {{ __('Portfolio') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -79,9 +81,6 @@
             <x-responsive-nav-link :href="route('dashboard.skills.index')" :active="request()->routeIs('dashboard.skills.index')">
                 {{ __('Skills') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                {{ __('Portfolio') }}
-            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -100,6 +99,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('index')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                    {{ __('Portfolio') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

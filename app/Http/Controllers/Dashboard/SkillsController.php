@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -55,7 +56,7 @@ class SkillsController extends Controller
 
         $image = $request->file('image');
         $imageName =  Str::uuid()->toString() . $image->getClientOriginalName();
-        $path = Storage::putFileAs('public/images', $image, $imageName);
+        $path = $image->storeAs('images', $imageName, 'public');
         $input["image_url"] = $imageName;
 
         $skill = new Skill();
@@ -113,8 +114,8 @@ class SkillsController extends Controller
 
         if($image){
             $imageName =  Str::uuid()->toString() . $image->getClientOriginalName();
-            $path = Storage::putFileAs('public/images', $image, $imageName);
-            Storage::delete($skill->image_url);
+            $path = $image->storeAs('images', $imageName, 'public');
+            Storage::delete(asset('public/images/' . $skill->image_url));
             $input["image_url"] = $imageName;
             $skill->image_url = $input["image_url"];
         }
@@ -135,7 +136,8 @@ class SkillsController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        Storage::delete($skill->image_url);
+        Storage::delete('public/images/' . $skill->image_url);
+        // Storage::delete(asset('storage/images/' . $skill->image_url));
         $skill->delete();
         return redirect()->route('dashboard.skills.index');
     }
