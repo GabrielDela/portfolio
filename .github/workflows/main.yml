@@ -22,6 +22,14 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
       run: php artisan key:generate
+    - name: Cache Clear
+      run: php artisan cache:clear
+    - name: Route Clear
+      run: php artisan route:clear
+    - name: Config Clear 
+      run: php artisan config:clear
+    - name: View Clear
+      run: php artisan view:clear
     - name: Storage Link
       run: php artisan storage:link
     - name: Directory Permissions
