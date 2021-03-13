@@ -33,7 +33,7 @@ jobs:
     - name: Storage Link
       run: php artisan storage:link
     - name: Directory Permissions 2
-      run: chmod -R 755 
+      run: chmod -R 755 /
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
