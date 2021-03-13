@@ -45,8 +45,9 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::resource('/jobs', JobsController::class);
 });
 
-Route::get('/linkstorage', function () {
+Route::get('/storagelink', function () {
     Artisan::call('storage:link');
-});
+    return DashboardController::index();
+})->middleware(['auth']);
 
 require __DIR__ . '/auth.php';
