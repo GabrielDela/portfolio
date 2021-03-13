@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\JobsController;
 use App\Http\Controllers\Dashboard\SkillsController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Models\Stat;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,10 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::resource('/users', UsersController::class);
     Route::resource('/skills', SkillsController::class);
     Route::resource('/jobs', JobsController::class);
+});
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
 });
 
 require __DIR__ . '/auth.php';
