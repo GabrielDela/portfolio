@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class GuestOtherLayout extends Component
+class PortfolioLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
@@ -13,6 +13,6 @@ class GuestOtherLayout extends Component
      */
     public function render()
     {
-        return view('layouts.guestother');
+        return view('layouts.portfolio');
     }
 }

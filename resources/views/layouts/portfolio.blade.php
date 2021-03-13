@@ -22,7 +22,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigationguest')
+        @include('layouts.navigationportfolio')
         <!-- Page Content -->
         <main>
             {{ $slot }}
