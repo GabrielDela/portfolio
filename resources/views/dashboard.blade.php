@@ -12,7 +12,7 @@
                     <div class="list-group">
                         @if(count($stats) > 0)
                         @foreach ($stats as $stat)
-                        
+
                         <div class="flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1 text-gray-800 font-weight-bold"> {{ $stat->ip_address }} </h5>
@@ -34,5 +34,25 @@
                 </div>
             </div>
         </div>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#preview').attr('src', e.target.result);
+                    }
+
+                    imageLabel.textContent = input.files[0]["name"];
+                    reader.readAsDataURL(input.files[0]); // convert to base64 string
+                }
+            };
+
+            var imageLabel = document.getElementById('imgLabel');
+            var imageFile = document.getElementById("image");
+            imageFile.addEventListener("change", function() {
+                readURL(this);
+            });
+        </script>
     </div>
 </x-app-layout>
