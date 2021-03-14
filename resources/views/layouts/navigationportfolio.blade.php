@@ -94,7 +94,7 @@
             element.classList.remove("text-red-900");
             element.classList.remove("focus:outline-none");
             element.classList.remove("focus:border-red-700");
-            element.classList.add("border-red-200");
+            element.classList.add("border-red-100");
             element.classList.add("hover:border-red-400");
             element.classList.add("hover:border-red-700");
             if (element.id == "btnPortfolio" || element.id == "btnPortfolioRES") {
@@ -122,7 +122,7 @@
                     element.classList.remove("text-red-900");
                     element.classList.remove("focus:outline-none");
                     element.classList.remove("focus:border-red-700");
-                    element.classList.add("border-red-200");
+                    element.classList.add("border-red-100");
                     element.classList.add("hover:border-red-400");
                     element.classList.add("hover:border-red-700");
                     if (element.id == buttonID.replace("RES", "") || element.id == buttonID.replace("RES", "") + "RES") {
