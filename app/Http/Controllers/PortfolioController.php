@@ -29,9 +29,10 @@ class PortfolioController extends Controller
         $stat->ip_address = $_SERVER['REMOTE_ADDR'];
         $stat->save();
 
+        $messages = [];
         $hero = Image::where('usage', 'hero')->first();
 
-        return view('index')->with('hero', $hero);
+        return view('index')->with('hero', $hero)->with('messages', $messages);
     }
 
     /**
@@ -42,12 +43,21 @@ class PortfolioController extends Controller
      */
     public static function store(Request $request)
     {
-        $request->validate([
-            "firstname" => "required",
-            "lastname" => "required",
-            "message" => "required",
-            "email" => "required|email",
-        ]);
+        $request->validate(
+            [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'message' => 'required',
+                'email' => 'required|email',
+            ],
+            [
+                'firstname.required' => 'Le champ Prénom est requis pour ce formulaire.',
+                'lastname.required'  => 'Le champ Nom est requis pour ce formulaire.',
+                'message.required'   => 'Vous devez ajouter un message a ce formulaire.',
+                'email.required'     => "Le champ Email est requis pour ce formulaire",
+                'email.email'        => "L'E-mail renseigné n'est pas valide",
+            ],
+        );
 
         $input = $request->all();
 
@@ -58,8 +68,8 @@ class PortfolioController extends Controller
 
         Mail("gabrieldelahaye76680@gmail.com", "Portfolio: " . $firstname . " " . $lastname, $message . "<br> En provenance de :" . $email);
 
-
+        $messages = ["Votre message à été envoyé, je vous remercie !"];
         $hero = Image::where('usage', 'hero')->first();
-        return view('index')->with('hero', $hero);
+        return view('index')->with('hero', $hero)->with('messages', $messages);
     }
 }

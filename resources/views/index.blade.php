@@ -54,6 +54,19 @@
                     </div>
                 </div>
                 @endif
+                @if ($messages)
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <div class="p-6 alert alert-primary" style="margin: 0;">
+                            <ul>
+                                @foreach ($messages as $message)
+                                <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" style="color: white;" for="grid-first-name">
