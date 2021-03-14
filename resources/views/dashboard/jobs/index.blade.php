@@ -41,7 +41,7 @@
                         <div class="font-medium text-sm text-gray-500">{{ $job->description }}</div>
                     </div>
                     <div class="ml-3" style="display: flex; margin: 10px auto;">
-                        <div class="font-medium text-sm text-gray-500">{{ $job->missions }}</div>
+                        <div class="font-medium text-sm text-gray-500">{!! html_entity_decode($job->missions) !!}</div>
                     </div>
                     <div class="ml-3" style="display: flex; margin: 10px auto;">
                         <div class="font-medium text-sm text-gray-500">{{ $job->location }}</div>

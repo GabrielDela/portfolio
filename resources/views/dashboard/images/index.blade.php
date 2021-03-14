@@ -35,7 +35,7 @@
                     </div>
                     <div class="ml-3" style="margin: 20px">
                         <div class="font-bold text-base text-gray-800">{{ $image->title }}</div>
-                        <div class="font-medium text-base text-gray-500">{{ $image->text }}</div>
+                        <div class="font-medium text-base text-gray-500">{!! html_entity_decode($image->text) !!}</div>
                     </div>
 
                     <div class="ml-3" style="display: flex; margin: auto;">

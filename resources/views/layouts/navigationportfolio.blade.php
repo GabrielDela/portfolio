@@ -12,9 +12,6 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" style="margin-left: auto;">
-                    <x-nav-link href="#portfolio" id="btnPortfolio" style="text-decoration: none;">
-                        {{ __('Portfolio') }}
-                    </x-nav-link>
                     <x-nav-link href="#experiences" id="btnExperiences" style="text-decoration: none;">
                         {{ __('Expériences') }}
                     </x-nav-link>
@@ -45,9 +42,6 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="#portfolio" id="btnPortfolioRES" @click="open = ! open" style="text-decoration: none;">
-                {{ __('Portfolio') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link href="#experiences" id="btnExperiencesRES" @click="open = ! open" style="text-decoration: none;">
                 {{ __('Expériences') }}
             </x-responsive-nav-link>
@@ -65,19 +59,17 @@
 
 
     <script>
-        var btnPortfolio = document.getElementById("btnPortfolio");
         var btnExperiences = document.getElementById("btnExperiences");
         var btnScholarships = document.getElementById("btnScholarships");
         var btnSkills = document.getElementById("btnSkills");
         var btnContact = document.getElementById("btnContact");
 
-        var btnPortfolioRES = document.getElementById("btnPortfolioRES");
         var btnExperiencesRES = document.getElementById("btnExperiencesRES");
         var btnScholarshipsRES = document.getElementById("btnScholarshipsRES");
         var btnSkillsRES = document.getElementById("btnSkillsRES");
         var btnContactRES = document.getElementById("btnContactRES");
 
-        var buttons = [btnPortfolio, btnExperiences, btnScholarships, btnSkills, btnContact, btnPortfolioRES, btnExperiencesRES, btnScholarshipsRES, btnSkillsRES, btnContactRES];
+        var buttons = [btnExperiences, btnScholarships, btnSkills, btnContact, btnExperiencesRES, btnScholarshipsRES, btnSkillsRES, btnContactRES];
 
         for (var i = 0; i < buttons.length; i++) {
             var element = buttons[i];
@@ -97,12 +89,6 @@
             element.classList.add("border-red-100");
             element.classList.add("hover:border-red-400");
             element.classList.add("hover:border-red-700");
-            if (element.id == "btnPortfolio" || element.id == "btnPortfolioRES") {
-                element.classList.add("border-red-400");
-                element.classList.add("text-grey-900");
-                element.classList.add("focus:outline-none");
-                element.classList.add("focus:border-red-700");
-            }
         }
 
         for (var i = 0; i < buttons.length; i++) {

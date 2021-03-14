@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
+use App\Models\Job;
 use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +32,9 @@ class PortfolioController extends Controller
 
         $messages = [];
         $hero = Image::where('usage', 'hero')->first();
-
-        return view('index')->with('hero', $hero)->with('messages', $messages);
+        $jobs = Job::all();
+        
+        return view('index')->with('hero', $hero)->with('messages', $messages)->with('jobs', $jobs);
     }
 
     /**

@@ -5,7 +5,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="hero">
                 <img src="{{ asset('storage/images/' . $hero->image_url) }}" class="image-portfolio">
-                <div class="container-text-hero">
+                <div class="container-text-hero" style="margin: 50px 25px 25px 25px;">
                     <div class="font-semibold text-3xl title-portfolio">{{ $hero->title }}</div>
                     <div class="text-lg">{!! html_entity_decode($hero->text) !!}
                     </div>
@@ -13,6 +13,7 @@
             </div>
         </div>
     </div>
+    <hr>
     @else
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -25,19 +26,54 @@
     </div>
     @endif
 
-    <div class="h-16" id="portfolio"></div>
-    <div style="background-color: #E1CCCC; padding: 0 0 4rem 0;">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="container-text-portfolio">
-                <div class="font-semibold text-3xl title-portfolio">TEST</div>
-                <div class="text-lg">TEST
+    <div class="h-16" id="experiences"></div>
+    <div>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="font-semibold text-3xl title-portfolio" style="margin: 0 60px;">Éxpériences</div>
+                @if(count($jobs) > 0)
+                @foreach ($jobs as $job)
+
+                <div class="hero">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="width: 100%;">
+                        <div class="hero" style="margin: 50px 25px 0 25px;">
+                            <img src="{{ asset('storage/images/' . $job->image_url) }}" class="image-portfolio-job">
+                            <div class="container-text-job flex" style="flex-direction: column;">
+                                <div class="font-semibold text-3xl title-portfolio">{{ $job->title }}</div>
+                                <div class="text-lg">{{ $job->society }}</div>
+                                <div class="text-lg">{{ $job->location }}</div>
+                            </div>
+                        </div>
+                        <div class="hero">
+                            <div class="container-text-job flex" style="flex-direction: column; margin: 0px 25px 0 25px;">
+                                <div class="text-lg">{!! html_entity_decode($job->description) !!}</div><br>
+                                <div class="text-lg">{!! html_entity_decode($job->missions) !!}</div><br>
+                            </div>
+                        </div>
+                        <div class="hero" style="margin: 0px 50px 25px 50px;">
+                            <div style="margin: auto 0px auto auto;">{{$job->start_date}} - {{$job->end_date}}</div>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
+                @else
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-6 bg-white border-b border-gray-200">
+                                <p>De nouvelles expériences bientot ...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
+    <hr>
 
-    <div class="h-16" id="experiences" style="background-color: #E1CCCC;"></div>
-    <div style="padding: 0 0 4rem 0;">
+    <div class="h-16" id="experiences"></div>
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container-text-portfolio">
                 <div class="font-semibold text-3xl title-portfolio">TEST</div>
@@ -48,7 +84,7 @@
     </div>
 
     <div class="h-16" id="schools"></div>
-    <div style="background-color: #E1CCCC; padding: 0 0 4rem 0;">
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container-text-portfolio">
                 <div class="font-semibold text-3xl title-portfolio">TEST</div>
@@ -58,8 +94,8 @@
         </div>
     </div>
 
-    <div class="h-16" id="skills" style="background-color: #E1CCCC;"></div>
-    <div style="padding: 0 0 4rem 0;">
+    <div class="h-16" id="skills"></div>
+    <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="container-text-portfolio">
                 <div class="font-semibold text-3xl title-portfolio">TEST</div>

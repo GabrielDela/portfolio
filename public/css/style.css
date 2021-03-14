@@ -17,14 +17,28 @@
     filter: blur(0.5px);
 }
 
+.image-portfolio-job {
+    border-radius: 10px;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    box-shadow: 6px -6px 20px 0px #0000005e;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
 .container-text-portfolio {
     padding: 15px;
-    margin: auto;
+    margin: auto auto auto 30px;
+}
+
+.container-text-job {
+    padding: 5px;
+    margin: auto auto auto 0px;
 }
 
 .container-text-hero {
     width: 600px;
-    padding: 30px;
     margin: auto;
 }
 
