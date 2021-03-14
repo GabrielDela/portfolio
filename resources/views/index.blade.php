@@ -1,10 +1,11 @@
 <x-portfolio-layout>
+    <div class="h-16" id="home"></div>
     @if($hero)
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="hero">
                 <img src="{{ asset('storage/images/' . $hero->image_url) }}" class="image-portfolio">
-                <div class="container-text-portfolio">
+                <div class="container-text-hero">
                     <div class="font-semibold text-3xl title-portfolio">{{ $hero->title }}</div>
                     <div class="text-lg">{!! html_entity_decode($hero->text) !!}
                     </div>
@@ -12,8 +13,6 @@
             </div>
         </div>
     </div>
-
-
     @else
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -25,17 +24,52 @@
         </div>
     </div>
     @endif
-    <div class="py-12" style="background-color: #E1CCCC;">
+
+    <div class="h-16" id="portfolio"></div>
+    <div style="background-color: #E1CCCC; padding: 0 0 4rem 0;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="hero">
-                <div class="container-text-portfolio">
-                    <div class="font-semibold text-3xl title-portfolio">TEST</div>
-                    <div class="text-lg">TEST
-                    </div>
+            <div class="container-text-portfolio">
+                <div class="font-semibold text-3xl title-portfolio">TEST</div>
+                <div class="text-lg">TEST
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="h-16" id="experiences" style="background-color: #E1CCCC;"></div>
+    <div style="padding: 0 0 4rem 0;">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="container-text-portfolio">
+                <div class="font-semibold text-3xl title-portfolio">TEST</div>
+                <div class="text-lg">TEST
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-16" id="schools"></div>
+    <div style="background-color: #E1CCCC; padding: 0 0 4rem 0;">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="container-text-portfolio">
+                <div class="font-semibold text-3xl title-portfolio">TEST</div>
+                <div class="text-lg">TEST
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-16" id="skills" style="background-color: #E1CCCC;"></div>
+    <div style="padding: 0 0 4rem 0;">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="container-text-portfolio">
+                <div class="font-semibold text-3xl title-portfolio">TEST</div>
+                <div class="text-lg">TEST
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-16" id="contact"></div>
     <div class="py-12 bg-dark" style="padding: 60px 10px;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form class="w-full max-w-lg " style="margin: auto;" action="{{ route('store') }}" method="POST">
@@ -67,7 +101,7 @@
                     </div>
                 </div>
                 @endif
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" style="color: white;" for="grid-first-name">
                             Prénom
@@ -81,7 +115,7 @@
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="lastname" id="grid-last-name" type="text" placeholder="Votre nom ...">
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap mb-6">
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" style="color: white;" for="grid-password">
                             Email
@@ -90,7 +124,7 @@
                         <!-- <p class="text-gray-600 text-xs italic">Some tips - as long as needed</p> -->
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap mb-6">
                     <div class="w-full px-3">
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" style="color: white;" for="grid-password">
                             Message
@@ -99,7 +133,7 @@
                         <!-- <p class="text-gray-600 text-xs italic">Re-size can be disabled by set by resize-none / resize-y / resize-x / resize</p> -->
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap mb-6">
                     <div class="w-full px-3 flex">
                         <button class="shadow focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded bg-gray-200 text-gray-700 button-contact" style="margin: 0 0 0 auto;" type="submit">
                             Envoyer

@@ -3,7 +3,7 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ImagesController;
 use App\Http\Controllers\Dashboard\JobsController;
-use App\Http\Controllers\Dashboard\EducationsController;
+use App\Http\Controllers\Dashboard\SchoolsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Dashboard\SkillsController;
 use App\Http\Controllers\Dashboard\UsersController;
@@ -32,7 +32,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(func
     Route::resource('/skills', SkillsController::class);
     Route::resource('/jobs', JobsController::class);
     Route::resource('/images', ImagesController::class);
-    Route::resource('/educations', EducationsController::class);
+    Route::resource('/schools', SchoolsController::class);
 });
 
 Route::get('/storagelink', function () {

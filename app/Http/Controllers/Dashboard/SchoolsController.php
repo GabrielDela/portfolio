@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Education;
+use App\Models\School;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class EducationsController extends Controller
+class SchoolsController extends Controller
 {
     public function __construct()
     {
@@ -21,9 +21,9 @@ class EducationsController extends Controller
      */
     public function index()
     {
-        $educations = Education::all();
+        $schools = School::all();
 
-        return view('dashboard.educations.index')->with('educations', $educations);
+        return view('dashboard.schools.index')->with('schools', $schools);
     }
 
     /**
@@ -33,7 +33,7 @@ class EducationsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.educations.create');
+        return view('dashboard.schools.create');
     }
 
     /**
@@ -62,27 +62,27 @@ class EducationsController extends Controller
         $path = $image->storeAs('images', $imageName, 'public');
         $input["image_url"] = $imageName;
 
-        $education = new Education();
-        $education->title = $input["title"];
-        $education->description = $input["description"];
-        $education->school = $input["school"];
-        $education->location = $input["location"];
-        $education->missions = $input["missions"];
-        $education->start_date = $input["start_date"];
-        $education->end_date = $input["end_date"];
-        $education->image_url = $input["image_url"];
-        $education->save();
+        $school = new School();
+        $school->title = $input["title"];
+        $school->description = $input["description"];
+        $school->school = $input["school"];
+        $school->location = $input["location"];
+        $school->missions = $input["missions"];
+        $school->start_date = $input["start_date"];
+        $school->end_date = $input["end_date"];
+        $school->image_url = $input["image_url"];
+        $school->save();
 
-        return redirect()->route('dashboard.educations.index');
+        return redirect()->route('dashboard.schools.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Education  $education
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function show(Education $education)
+    public function show(School $school)
     {
         //
     }
@@ -90,13 +90,13 @@ class EducationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Education  $education
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function edit(Education $education)
+    public function edit(School $school)
     {
-        return view('dashboard.educations.edit', [
-            'education' => $education,
+        return view('dashboard.schools.edit', [
+            'school' => $school,
         ]);
     }
 
@@ -104,10 +104,10 @@ class EducationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Education  $education
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Responses
      */
-    public function update(Request $request, Education $education)
+    public function update(Request $request, School $school)
     {
         $request->validate([
             "title" => "required",
@@ -126,34 +126,34 @@ class EducationsController extends Controller
         if($image){
             $imageName =  Str::uuid()->toString() . $image->getClientOriginalName();
             $path = $image->storeAs('images', $imageName, 'public');
-            Storage::delete(asset('public/images/' . $education->image_url));
+            Storage::delete(asset('public/images/' . $school->image_url));
             $input["image_url"] = $imageName;
-            $education->image_url = $input["image_url"];
+            $school->image_url = $input["image_url"];
         }
 
-        $education->title = $input["title"];
-        $education->description = $input["description"];
-        $education->school = $input["school"];
-        $education->location = $input["location"];
-        $education->missions = $input["missions"];
-        $education->start_date = $input["start_date"];
-        $education->end_date = $input["end_date"];
-        $education->image_url = $input["image_url"];
+        $school->title = $input["title"];
+        $school->description = $input["description"];
+        $school->school = $input["school"];
+        $school->location = $input["location"];
+        $school->missions = $input["missions"];
+        $school->start_date = $input["start_date"];
+        $school->end_date = $input["end_date"];
+        $school->image_url = $input["image_url"];
 
-        $education->save();
+        $school->save();
 
-        return redirect()->route('dashboard.educations.index');
+        return redirect()->route('dashboard.schools.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param  \App\Models\Education  $education
+     * @param  \App\Models\School  $school
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Education $education)
+    public function destroy(School $school)
     {
-        Storage::delete('public/images/' . $education->image_url);
-        $education->delete();
-        return redirect()->route('dashboard.educations.index');
+        Storage::delete('public/images/' . $school->image_url);
+        $school->delete();
+        return redirect()->route('dashboard.schools.index');
     }
 }

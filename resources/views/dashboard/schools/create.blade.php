@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="ml-3" style="display: flex; margin: auto;">
                 <div class="p-2">
-                    <a href="{{ route('dashboard.education.index') }}">
+                    <a href="{{ route('dashboard.schools.index') }}">
                         <x-button class="ml-3">
                             {{ __('Back') }}
                         </x-button>
@@ -24,9 +24,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="p-2">
-                        Creating a new education
+                        Creating a new school
                     </div>
-                    <form method="POST" action="{{ route('dashboard.educations.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('dashboard.schools.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 

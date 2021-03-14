@@ -24,8 +24,8 @@
                     <x-nav-link :href="route('dashboard.jobs.index')" :active="request()->routeIs('dashboard.jobs.index')">
                         {{ __('Jobs') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard.educations.index')" :active="request()->routeIs('dashboard.educations.index')">
-                        {{ __('Educations') }}
+                    <x-nav-link :href="route('dashboard.schools.index')" :active="request()->routeIs('dashboard.schools.index')">
+                        {{ __('Schools') }}
                     </x-nav-link>
                     <x-nav-link :href="route('dashboard.images.index')" :active="request()->routeIs('dashboard.images.index')">
                         {{ __('Images') }}
@@ -91,8 +91,8 @@
             <x-responsive-nav-link :href="route('dashboard.jobs.index')" :active="request()->routeIs('dashboard.jobs.index')">
                 {{ __('Jobs') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard.educations.index')" :active="request()->routeIs('dashboard.educations.index')">
-                {{ __('Educations') }}
+            <x-responsive-nav-link :href="route('dashboard.schools.index')" :active="request()->routeIs('dashboard.schools.index')">
+                {{ __('Schools') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('dashboard.images.index')" :active="request()->routeIs('dashboard.images.index')">
                 {{ __('Images') }}
