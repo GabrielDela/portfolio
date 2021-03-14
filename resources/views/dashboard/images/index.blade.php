@@ -25,13 +25,17 @@
             @foreach ($images as $image)
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="flex items-center">
+                    <div class="flex items-center" style="margin: 15px;">
                         <div class="flex-shrink-0">
                             <img src="{{ asset('storage/images/' . $image->image_url) }}" id="preview" alt="preview" style="border-radius: 50%; margin: auto; width: 150px; height: 150px; box-shadow: 6px -6px 20px 0px #0000005e; object-fit: cover; filter: blur(0.5px);">
                         </div>
-                        <div class="" style="margin: auto auto auto 40px;">
+                        <div style="margin: auto auto auto 30px;">
                             <div class="font-medium text-base text-gray-800">Usage for : {{ $image->usage }}</div>
                         </div>
+                    </div>
+                    <div class="ml-3" style="margin: 20px">
+                        <div class="font-bold text-base text-gray-800">{{ $image->title }}</div>
+                        <div class="font-medium text-base text-gray-500">{{ $image->text }}</div>
                     </div>
 
                     <div class="ml-3" style="display: flex; margin: auto;">

@@ -46,6 +46,8 @@ class ImagesController extends Controller
     {
         $request->validate([
             "usage" => "required",
+            "title" => "required",
+            "text" => "required",
             "image" => "required|mimes:jpeg,png,jpg,gif,svg",
         ]);
 
@@ -58,6 +60,8 @@ class ImagesController extends Controller
 
         $imageModel = new Image();
         $imageModel->usage = $input["usage"];
+        $imageModel->title = $input["title"];
+        $imageModel->text = $input["text"];
         $imageModel->image_url = $input["image_url"];
         $imageModel->save();
 
@@ -99,6 +103,8 @@ class ImagesController extends Controller
     {
         $request->validate([
             "usage" => "required",
+            "title" => "required",
+            "text" => "required",
             "image" => "mimes:jpeg,png,jpg,gif,svg",
         ]);
 
@@ -114,6 +120,8 @@ class ImagesController extends Controller
         }
 
         $imageModel->usage = $input["usage"];
+        $imageModel->title = $input["title"];
+        $imageModel->text = $input["text"];
         $imageModel->image_url = $input["image_url"];
 
         $image->save();

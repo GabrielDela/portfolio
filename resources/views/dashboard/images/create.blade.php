@@ -36,6 +36,16 @@
                         </div>
 
                         <div class="mt-4">
+                            <x-label for="title" :value="__('Title')" />
+                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="text" :value="__('Text')" />
+                            <x-input id="text" class="block mt-1 w-full" type="text" name="text" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
                             <x-label :value="__('Image')" />
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="image" name="image">

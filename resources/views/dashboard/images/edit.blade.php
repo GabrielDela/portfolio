@@ -36,6 +36,16 @@
                         </div>
 
                         <div class="mt-4">
+                            <x-label for="title" :value="__('Title')" />
+                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $image->title }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="text" :value="__('Text')" />
+                            <x-input id="text" class="block mt-1 w-full" type="text" name="text" value="{{ $image->text }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
                             <x-label :value="__('Preview')" />
                             <img src="{{ asset('storage/images/' .$image->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
                         </div>
