@@ -22,20 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $stat = new Stat();
-    if (Auth::user() != "") {
-        $value = Auth::user()["name"] . " s'est connecté.";
-    } else {
-        $value = "Un invité s'est connecté.";
-    }
-    $stat->action = $value;
-    $stat->date_log = date("Y-m-d");
-    $stat->ip_address = $_SERVER['REMOTE_ADDR'];
-    $stat->save();
-
-    return PortfolioController::index();
-})->name('index');
+Route::resource('/', PortfolioController::class);
 
 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
 

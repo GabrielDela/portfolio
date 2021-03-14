@@ -24,3 +24,20 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
+
+.btn-admin {
+    color: white;
+}
+
+.btn-admin:hover {
+    color: rgb(172, 172, 172);
+}
+
+.button-contact {
+    transition: 0.5s;
+}
+
+.button-contact:hover {
+    color: #ffffff;
+    background-color: #414850;
+}
