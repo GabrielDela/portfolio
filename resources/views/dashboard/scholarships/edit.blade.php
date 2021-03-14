@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Images') }}
+            {{ __('Educations') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="ml-3" style="display: flex; margin: auto;">
                 <div class="p-2">
-                    <a href="{{ route('dashboard.images.index') }}">
+                    <a href="{{ route('dashboard.educations.index') }}">
                         <x-button class="ml-3">
                             {{ __('Back') }}
                         </x-button>
@@ -24,25 +24,45 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="p-2">
-                        Editing an image
+                        Editing a education
                     </div>
-                    <form method="POST" action="{{ route('dashboard.images.update', $image) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('dashboard.educations.update', $education) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
                         <div class="mt-4">
-                            <x-label for="usage" :value="__('Usage')" />
-                            <x-input id="usage" class="block mt-1 w-full" type="text" name="usage" value="{{ $image->usage }}" required autofocus />
-                        </div>
-
-                        <div class="mt-4">
                             <x-label for="title" :value="__('Title')" />
-                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $image->title }}" required autofocus />
+                            <x-input id="title" class="block mt-1 w-full" type="text" name="title" value="{{ $education->title }}" required autofocus />
                         </div>
 
                         <div class="mt-4">
-                            <x-label for="text" :value="__('Text')" />
-                            <x-input id="text" class="block mt-1 w-full" type="text" name="text" value="{{ $image->text }}" required autofocus />
+                            <x-label for="society" :value="__('Society')" />
+                            <x-input id="society" class="block mt-1 w-full" type="text" name="society" value="{{ $education->society }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="description" :value="__('Description')" />
+                            <x-input id="description" class="block mt-1 w-full" type="text" name="description" value="{{ $education->description }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="missions" :value="__('Missions')" />
+                            <x-input id="missions" class="block mt-1 w-full" type="text" name="missions" value="{{ $education->missions }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="location" :value="__('Location')" />
+                            <x-input id="location" class="block mt-1 w-full" type="text" name="location" value="{{ $education->location }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="start_date" :value="__('Start date')" />
+                            <x-input id="start_date" class="block mt-1 w-full" type="date" name="start_date" value="{{ $education->start_date }}" required autofocus />
+                        </div>
+
+                        <div class="mt-4">
+                            <x-label for="end_date" :value="__('End Date')" />
+                            <x-input id="end_date" class="block mt-1 w-full" type="date" name="end_date" value="{{ $education->end_date }}" required autofocus />
                         </div>
 
                         <div class="mt-4">
@@ -55,7 +75,7 @@
 
                         <div class="mt-4">
                             <x-label :value="__('Preview')" />
-                            <img src="{{ asset('storage/images/' . $image->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
+                            <img src="{{ asset('storage/images/' .$education->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
