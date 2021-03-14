@@ -53,17 +53,17 @@ class ImagesController extends Controller
 
         $input = $request->all();
 
-        $image = $request->file('image');
-        $imageName =  Str::uuid()->toString() . $image->getClientOriginalName();
-        $path = $image->storeAs('images', $imageName, 'public');
+        $img = $request->file('image');
+        $imageName =  Str::uuid()->toString() . $img->getClientOriginalName();
+        $path = $img->storeAs('images', $imageName, 'public');
         $input["image_url"] = $imageName;
 
-        $imageModel = new Image();
-        $imageModel->usage = $input["usage"];
-        $imageModel->title = $input["title"];
-        $imageModel->text = $input["text"];
-        $imageModel->image_url = $input["image_url"];
-        $imageModel->save();
+        $image = new Image();
+        $image->usage = $input["usage"];
+        $image->title = $input["title"];
+        $image->text = $input["text"];
+        $image->image_url = $input["image_url"];
+        $image->save();
 
         return redirect()->route('dashboard.images.index');
     }
@@ -99,7 +99,7 @@ class ImagesController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Responses
      */
-    public function update(Request $request, Image $imageModel)
+    public function update(Request $request, Image $image)
     {
         $request->validate([
             "usage" => "required",
@@ -109,20 +109,20 @@ class ImagesController extends Controller
         ]);
 
         $input = $request->all();
-        $image = $request->file('image');
+        $img = $request->file('image');
 
-        if($image){
-            $imageName =  Str::uuid()->toString() . $image->getClientOriginalName();
-            $path = $image->storeAs('images', $imageName, 'public');
+        if($img){
+            $imageName =  Str::uuid()->toString() . $img->getClientOriginalName();
+            $path = $img->storeAs('images', $imageName, 'public');
             Storage::delete(asset('public/images/' . $image->image_url));
             $input["image_url"] = $imageName;
             $image->image_url = $input["image_url"];
         }
 
-        $imageModel->usage = $input["usage"];
-        $imageModel->title = $input["title"];
-        $imageModel->text = $input["text"];
-        $imageModel->image_url = $input["image_url"];
+        $image->usage = $input["usage"];
+        $image->title = $input["title"];
+        $image->text = $input["text"];
+
 
         $image->save();
 

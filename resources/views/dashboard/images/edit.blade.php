@@ -47,7 +47,7 @@
 
                         <div class="mt-4">
                             <x-label :value="__('Preview')" />
-                            <img src="{{ asset('storage/images/' .$image->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
+                            <img src="{{ asset('storage/images/' . $image->image_url) }}" class="rounded mx-auto d-block" id="preview" alt="preview" style="width: 200px; height: 200px; object-fit: cover; box-shadow: 0px 0px 7px 0px #0000005e;">
                         </div>
 
                         <div class="flex items-center justify-end mt-4">

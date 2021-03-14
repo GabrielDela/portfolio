@@ -6,7 +6,7 @@
                 <img src="{{ asset('storage/images/' . $hero->image_url) }}" class="image-portfolio">
                 <div class="container-text-portfolio">
                     <div class="font-semibold text-3xl title-portfolio">{{ $hero->title }}</div>
-                    <div class="text-lg">{{ $hero->text }}
+                    <div class="text-lg">{!! html_entity_decode($hero->text) !!}
                     </div>
                 </div>
             </div>
