@@ -1,0 +1,27 @@
+.title-portfolio {
+    margin: 15px 0;
+}
+
+.image-portfolio {
+    border-radius: 50%;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    box-shadow: 6px -6px 20px 0px #0000005e;
+    -o-object-fit: cover;
+       object-fit: cover;
+    filter: blur(0.5px);
+}
+
+.container-text-portfolio {
+    width: 600px;
+    margin: auto;
+    padding: 30px;
+}
+
+.hero {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

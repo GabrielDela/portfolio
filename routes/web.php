@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\ImagesController;
 use App\Http\Controllers\Dashboard\JobsController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Dashboard\SkillsController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Models\Stat;
@@ -33,7 +34,7 @@ Route::get('/', function () {
     $stat->ip_address = $_SERVER['REMOTE_ADDR'];
     $stat->save();
 
-    return view('index');
+    return PortfolioController::index();
 })->name('index');
 
 Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
