@@ -138,7 +138,6 @@ class SchoolsController extends Controller
         $school->missions = $input["missions"];
         $school->start_date = $input["start_date"];
         $school->end_date = $input["end_date"];
-        $school->image_url = $input["image_url"];
 
         $school->save();
 

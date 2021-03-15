@@ -36,8 +36,8 @@
                         </div>
 
                         <div class="mt-4">
-                            <x-label for="society" :value="__('Society')" />
-                            <x-input id="society" class="block mt-1 w-full" type="text" name="society" value="{{ $school->society }}" required autofocus />
+                            <x-label for="school" :value="__('School')" />
+                            <x-input id="school" class="block mt-1 w-full" type="text" name="school" value="{{ $school->school }}" required autofocus />
                         </div>
 
                         <div class="mt-4">

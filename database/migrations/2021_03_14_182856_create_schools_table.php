@@ -16,10 +16,10 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('school');
             $table->string('location');
-            $table->string('missions');
+            $table->longText('missions');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('image_url');
