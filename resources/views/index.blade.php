@@ -27,134 +27,139 @@
     @endif
 
     <div class="h-16" id="experiences"></div>
-    <div>
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="font-semibold text-3xl title-portfolio" style="margin: 0 60px;">Éxpériences</div><br>
-                <div class="container" style="margin-bottom: 4rem;">
-                    <div class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
-                        @if(count($jobs) > 0)
-                        <div style="display: none;">{{ $count = 1 }}</div>
+    <div class="py-12" style="padding-top: 20px">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if(count($jobs) > 0)
+            <div class="font-semibold text-3xl title-portfolio" style="margin: 0 60px;">Éxpériences</div><br>
+            <div class="container">
+                <div class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
+                    <div style="display: none;">{{ $count = 1 }}</div>
 
-                        @foreach ($jobs as $job)
-                        @if($count % 2 != 0)
+                    @foreach ($jobs as $job)
+                    @if($count % 2 != 0)
 
-                        <!-- left -->
-                        <div class="flex flex-row-reverse md:contents">
-                            <div class="bg-red-400 col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-lg" style="width: 100%;">
-                                <img src="{{ asset('storage/images/' . $job->image_url) }}" style="margin: 10px auto 25px auto; width: 100px; height: 100px; border-radius: 5px; background-color: white;">
-                                <h3 class="font-semibold text-lg mb-1">{{ $job->title }}</h3>
-                                <p class="leading-tight text-justify">
-                                    {{ $job->description }}
-                                </p>
+                    <!-- left -->
+                    <div class="flex flex-row-reverse md:contents">
+                        <div class="bg-dark col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-lg" style="width: 100%;">
+                            <img src="{{ asset('storage/images/' . $job->image_url) }}" style="margin: 10px auto 25px auto; width: 100px; height: 100px; border-radius: 5px; background-color: white;">
+                            <h3 class="font-semibold text-xl mb-1">{{ $job->title }}</h3>
+                            <p class="leading-tight text-justify text-base text-gray-200">
+                                {{ $job->description }}
+                            </p>
 
-                                <p class="leading-tight text-justify" style="margin: 20px 0 0 0;">
-                                    {!! html_entity_decode($job->missions) !!}
-                                </p>
+                            <p class="leading-tight text-justify text-base text-gray-200" style="margin: 20px 0 0 0;">
+                                {!! html_entity_decode($job->missions) !!}
+                            </p>
 
-                                <div class="flex" style="margin: 20px 0;">
-                                    <p class="leading-tight text-justify font-semibold" style="margin: auto 0 auto auto;">
-                                        {{ $job->society . " " . $job->location }}
-                                </div>
-                                <div class="flex">
-                                    <p class="leading-tight text-justify bold" style="margin: auto 0 auto auto;">
-                                    <h1><span class="badge badge-light">{{ str_replace('-',' / ',date('d-m-Y', strtotime($job->start_date)))  . " - " . str_replace('-',' / ',date('d-m-Y', strtotime($job->end_date))) }}</span></h1>
-                                    </p>
-                                </div>
+                            <div class="flex" style="margin: 20px 0;">
+                                <p class="leading-tight text-justify font-semibold " style="margin: auto 0 auto auto;">
+                                    {{ $job->society . " " . $job->location }}
                             </div>
-                            <div class="col-start-5 col-end-6 md:mx-auto relative mr-10">
-                                <div class="h-full w-6 flex items-center justify-center">
-                                    <div class="h-full w-1 bg-red-400 pointer-events-none shadow-xl"></div>
-                                </div>
-                                <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-red-500 shadow-xl"></div>
+                            <div class="flex">
+                                <p class="leading-tight text-justify bold" style="margin: auto 0 auto auto;">
+                                <h1><span class="badge badge-light">{{ str_replace('-',' / ',date('d-m-Y', strtotime($job->start_date)))  . " - " . str_replace('-',' / ',date('d-m-Y', strtotime($job->end_date))) }}</span></h1>
+                                </p>
                             </div>
                         </div>
-                        @else
-                        <!-- right -->
-                        <div class="flex md:contents">
-                            <div class="col-start-5 col-end-6 mr-10 md:mx-auto relative">
-                                <div class="h-full w-6 flex items-center justify-center">
-                                    <div class="h-full w-1 bg-red-400 pointer-events-none shadow-xl"></div>
-                                </div>
-                                <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-red-500 shadow-xl"></div>
+                        <div class="col-start-5 col-end-6 md:mx-auto relative mr-10">
+                            <div class="h-full w-6 flex items-center justify-center">
+                                <div class="h-full w-1 bg-gray-500 pointer-events-none shadow-xl"></div>
                             </div>
-                            <div class="bg-red-400 col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-lg" style="width: 100%;">
-                                <img src="{{ asset('storage/images/' . $job->image_url) }}" style="margin: 10px auto 25px auto; width: 100px; height: 100px; border-radius: 5px; background-color: white;">
-                                <h3 class="font-semibold text-lg mb-1">{{ $job->title }}</h3>
-                                <p class="leading-tight text-justify">
-                                    {{ $job->description }}
-                                </p>
-
-                                <p class="leading-tight text-justify" style="margin: 20px 0 0 0;">
-                                    {!! html_entity_decode($job->missions) !!}
-                                </p>
-
-                                <div class="flex" style="margin: 20px 0;">
-                                    <p class="leading-tight text-justify font-semibold" style="margin: auto 0 auto auto;">
-                                        {{ $job->society . " " . $job->location }}
-                                </div>
-                                <div class="flex">
-                                    <p class="leading-tight text-justify bold" style="margin: auto 0 auto auto;">
-                                    <h1><span class="badge badge-light">{{ str_replace('-',' / ',date('d-m-Y', strtotime($job->start_date)))  . " - " . str_replace('-',' / ',date('d-m-Y', strtotime($job->end_date))) }}</span></h1>
-                                    </p>
-                                </div>
-                            </div>
+                            <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-gray-800 shadow-xl"></div>
                         </div>
-                        @endif
-
-                        <div style="display: none;">{{ $count++ }}</div>
-
-                        @endforeach
-                        @else
                     </div>
-                </div>
+                    @else
+                    <!-- right -->
+                    <div class="flex md:contents">
+                        <div class="col-start-5 col-end-6 mr-10 md:mx-auto relative">
+                            <div class="h-full w-6 flex items-center justify-center">
+                                <div class="h-full w-1 bg-gray-500 pointer-events-none shadow-xl"></div>
+                            </div>
+                            <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-gray-800 shadow-xl"></div>
+                        </div>
+                        <div class="bg-dark col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-lg" style="width: 100%;">
+                            <img src="{{ asset('storage/images/' . $job->image_url) }}" style="margin: 10px auto 25px auto; width: 100px; height: 100px; border-radius: 5px; background-color: white;">
+                            <h3 class="font-semibold text-xl mb-1">{{ $job->title }}</h3>
+                            <p class="leading-tight text-justify text-base text-gray-200">
+                                {{ $job->description }}
+                            </p>
 
-                <div class="py-12">
-                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                            <div class="p-6 bg-white border-b border-gray-200">
-                                <p>De nouvelles expériences bientot ...</p>
+                            <p class="leading-tight text-justify text-base text-gray-200" style="margin: 20px 0 0 0;">
+                                {!! html_entity_decode($job->missions) !!}
+                            </p>
+
+                            <div class="flex" style="margin: 20px 0;">
+                                <p class="leading-tight text-justify font-semibold " style="margin: auto 0 auto auto;">
+                                    {{ $job->society . " " . $job->location }}
+                            </div>
+                            <div class="flex">
+                                <p class="leading-tight text-justify bold" style="margin: auto 0 auto auto;">
+                                <h1><span class="badge badge-light">{{ str_replace('-',' / ',date('d-m-Y', strtotime($job->start_date)))  . " - " . str_replace('-',' / ',date('d-m-Y', strtotime($job->end_date))) }}</span></h1>
+                                </p>
                             </div>
                         </div>
                     </div>
+                    @endif
+                    <div style="display: none;">{{ $count++ }}</div>
+                    @endforeach
                 </div>
-                @endif
             </div>
+            @else
+
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 bg-white border-b border-gray-200">
+                            <p>De nouvelles expériences bientot ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
-    </div>
     </div>
     <hr>
 
-    <div class="h-16" id="experiences"></div>
-    <div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="container-text-portfolio">
-                <div class="font-semibold text-3xl title-portfolio">TEST</div>
-                <div class="text-lg">TEST
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="h-16" id="schools"></div>
-    <div>
+    <div class="py-12" style="padding-top: 20px">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="container-text-portfolio">
-                <div class="font-semibold text-3xl title-portfolio">TEST</div>
-                <div class="text-lg">TEST
+            @if(count($schools) > 0)
+            <div class="font-semibold text-3xl title-portfolio" style="margin: 0 60px;">Scolarité</div><br>
+            
+            @else
+
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 bg-white border-b border-gray-200">
+                            <p>De nouvelles formations bientot ...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
+    <hr>
 
     <div class="h-16" id="skills"></div>
-    <div>
+    <div class="py-12" style="padding-top: 20px">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="container-text-portfolio">
-                <div class="font-semibold text-3xl title-portfolio">TEST</div>
-                <div class="text-lg">TEST
+            @if(count($skills) > 0)
+            <div class="font-semibold text-3xl title-portfolio" style="margin: 0 60px;">Scolarité</div><br>
+            
+            @else
+
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 bg-white border-b border-gray-200">
+                            <p>De nouvelles compétences bientot ...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
@@ -162,6 +167,13 @@
     <div class="py-12 bg-dark" style="padding: 60px 10px;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form class="w-full max-w-lg " style="margin: auto;" action="{{ route('store') }}" method="POST">
+                <div class="flex flex-wrap mb-6">
+                    <div class="w-full px-3">
+                        <div class="text-3xl text-gray-50">Pour me contacter, suivez ce formulaire.</div>
+                        <div class="text-base text-gray-400">Tout les champs sont requis.</div>
+                    </div>
+                </div>
+
                 @csrf
                 @method('POST')
                 @if ($errors->any())
@@ -222,7 +234,7 @@
                         <!-- <p class="text-gray-600 text-xs italic">Re-size can be disabled by set by resize-none / resize-y / resize-x / resize</p> -->
                     </div>
                 </div>
-                <div class="flex flex-wrap mb-6">
+                <div class="flex flex-wrap">
                     <div class="w-full px-3 flex">
                         <button class="shadow focus:shadow-outline focus:outline-none font-bold py-2 px-4 rounded bg-gray-200 text-gray-700 button-contact" style="margin: 0 0 0 auto;" type="submit">
                             Envoyer

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Job;
+use App\Models\School;
+use App\Models\Skill;
 use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,8 +35,10 @@ class PortfolioController extends Controller
         $messages = [];
         $hero = Image::where('usage', 'hero')->first();
         $jobs = Job::all();
+        $schools = School::all();
+        $skills = Skill::all();
         
-        return view('index')->with('hero', $hero)->with('messages', $messages)->with('jobs', $jobs);
+        return view('index')->with('hero', $hero)->with('messages', $messages)->with('jobs', $jobs)->with('schools', $schools)->with('skills', $skills);
     }
 
     /**
@@ -72,6 +76,10 @@ class PortfolioController extends Controller
 
         $messages = ["Votre message à été envoyé, je vous remercie !"];
         $hero = Image::where('usage', 'hero')->first();
-        return view('index')->with('hero', $hero)->with('messages', $messages);
+        $jobs = Job::all();
+        $schools = School::all();
+        $skills = Skill::all();
+        
+        return view('index')->with('hero', $hero)->with('messages', $messages)->with('jobs', $jobs)->with('schools', $schools)->with('skills', $skills);
     }
 }
