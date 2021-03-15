@@ -276,7 +276,7 @@
                 <div class="flex flex-wrap mb-6">
                     <div class="w-full px-3">
                         <div class="text-3xl text-gray-50">Pour me contacter, suivez ce formulaire.</div>
-                        <div class="text-base text-gray-400">Tout les champs sont requis.</div>
+                        <div class="text-base text-gray-400">Tous les champs sont requis.</div>
                     </div>
                 </div>
 
