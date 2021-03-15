@@ -18,8 +18,7 @@ class UsersSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'email' => 'admin@account.com',
-                'password' => '$2y$10$iv5mw1QCcePh73Wq2nsKUOcqs20IfvTIeGNISLE.oIoM4z.NPCjgu',
-                //'password' => '$2y$10$g6nsCexhPL0JkFqnMWlaRuInTKb5Cvzom8A5ec8XYChm4/UnXlPT.', //Custom password hashed
+                'password' => '$2y$10$g6nsCexhPL0JkFqnMWlaRuInTKb5Cvzom8A5ec8XYChm4/UnXlPT.', //Custom password hashed
             ]
         );
     }
