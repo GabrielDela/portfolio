@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex" style="width: 100%;">
                 <div class="flex-shrink-0 flex items-center">
-                    <x-nav-link href="#home" class="text-gray-800 font-weight-bold" style="text-decoration: none;">
+                    <x-nav-link id="btnHome" href="#home" class="text-gray-800 font-weight-bold" style="text-decoration: none;">
                         <!-- active="request()->routeIs('index')" -->
                         {{ __('Gabriel DELAHAYE') }}
                     </x-nav-link>
@@ -59,6 +59,7 @@
 
 
     <script>
+        var btnHome = document.getElementById("btnHome");
         var btnExperiences = document.getElementById("btnExperiences");
         var btnScholarships = document.getElementById("btnScholarships");
         var btnSkills = document.getElementById("btnSkills");
@@ -69,7 +70,7 @@
         var btnSkillsRES = document.getElementById("btnSkillsRES");
         var btnContactRES = document.getElementById("btnContactRES");
 
-        var buttons = [btnExperiences, btnScholarships, btnSkills, btnContact, btnExperiencesRES, btnScholarshipsRES, btnSkillsRES, btnContactRES];
+        var buttons = [btnHome, btnExperiences, btnScholarships, btnSkills, btnContact, btnExperiencesRES, btnScholarshipsRES, btnSkillsRES, btnContactRES];
 
         for (var i = 0; i < buttons.length; i++) {
             var element = buttons[i];
@@ -89,6 +90,13 @@
             element.classList.add("border-red-100");
             element.classList.add("hover:border-red-400");
             element.classList.add("hover:border-red-700");
+
+            if (element.id == "btnHome") {
+                element.classList.add("border-red-400");
+                element.classList.add("text-grey-900");
+                element.classList.add("focus:outline-none");
+                element.classList.add("focus:border-red-700");
+            }
         }
 
         for (var i = 0; i < buttons.length; i++) {
