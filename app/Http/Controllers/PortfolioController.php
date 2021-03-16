@@ -22,14 +22,7 @@ class PortfolioController extends Controller
     public static function index()
     {
         $stat = new Stat();
-        if (Auth::user() != "") {
-            $value = Auth::user()["name"] . " s'est connecté.";
-        } else {
-            $value = "Un invité s'est connecté.";
-        }
-        $stat->action = $value;
         $stat->date_log = date("Y-m-d");
-        $stat->ip_address = $_SERVER['REMOTE_ADDR'];
         $stat->save();
 
         $messages = [];

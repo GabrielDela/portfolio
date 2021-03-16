@@ -16,8 +16,6 @@ class CreateStatsTable extends Migration
         Schema::create('stats', function (Blueprint $table) {
             $table->id();
             $table->date('date_log');
-            $table->string('ip_address');
-            $table->string('action');
             $table->timestamps();
         });
     }

@@ -16,6 +16,5 @@ class Stat extends Model
      */
     protected $fillable = [
         'date_log',
-        'action',
     ];
 }
