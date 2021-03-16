@@ -231,26 +231,12 @@
                         </div>
 
                         <div style="width: 100%; margin: 30px;">
-                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-200 shadow-xl">
-                                <div style="width: {{ $skill->level*10 }}%;" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-300 shadow-xl">
+                                <div style="width: {{ $skill->level*10 }}%;" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-400"></div>
                             </div>
                         </div>
 
                     </div>
-                    <!-- <div class="relative pt-1">
-                        <div class="flex">
-                            <img src="{{ asset('storage/images/' . $skill->image_url) }}" class="shadow-xl" style="object-fit: cover; margin: 30px auto; width: 100px; height: 100px; border-radius: 5px; background-color: white;">
-                            <div class="flex" style="flex-direction: row; margin: auto;">
-                                <div class="text-xl text-gray-50" style="color: black; margin: auto 30px">{{ $skill->name }}
-                                    <div class="text-base text-gray-800" style="margin-top: 10px;">{{ $skill->description }}</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-200 shadow-xl">
-                            <div style="width:30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
-                        </div>
-                    </div> -->
                     @endforeach
                 </div>
             </div>
